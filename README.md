@@ -1,2 +1,6 @@
 # Spotify-Popularity-Predictor
-This Project will use supervised learning to predict the popularity of songs on Spotify
+This project's goal is to predict a song's popularity using various variables, such as, but not limited to: energy, danceability, valence, etc.
+
+Songs were gathered using the Spotify API using the spotipy library. First, The top 3000 most streamed artists were scraped from https://kworb.net/spotify/artists.html using Beautiful Soup. After saving the top artists, their accompanying artist ID was gathered using the Spotify API. Afterwards, the top song recommendations based on the accompanying artist was gathered using various popularity ranges. After songs were collected, the accompanying songs' audio features were pulled from another Spotify API call. These tables were then merged together to create the Dataset for the Machine Learning Model.
+
+Using the dataset, songs were binned into popularity bins (Low, Medium, High). Decision Tree Classifier model was used to attempt to predict popularity given the audio features. The Dataset was scaled and fit to the model before running the prediction. The model was unreliable, having a weighted average precision of .48 and weighted average recall of .47. The model had a lot of difficulty predicting popular songs, with a precision score of .06. This data shows that this model is not an effective predictor of popularity. Another model will be run using a neural network at a later time. 
